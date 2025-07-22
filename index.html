@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAMAFI - Malagasy Mamafy Fahombiazana Iraisana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Changé de Inter à Roboto */
+            background-color: #f0f0f0; /* Couleur de fond claire */
+        }
+        .text-mamafi-green {
+            color: #4CAF50; /* Vert du logo */
+        }
+        .bg-mamafi-green {
+            background-color: #4CAF50; /* Vert du logo */
+        }
+        .border-mamafi-green {
+            border-color: #4CAF50; /* Vert du logo */
+        }
+        .shadow-mamafi {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Styles pour le carrousel de fond */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Hauteur fixe pour le carrousel */
+            overflow: hidden;
+        }
+
+        .hero-carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* Transition douce pour le fondu */
+        }
+
+        .hero-carousel-image.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay sombre pour la lisibilité du texte */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10; /* Assure que le texte est au-dessus de l'overlay */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- En-tête -->
+    <header class="bg-white shadow-mamafi p-4 md:p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <!-- Logo et nom de l'association -->
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <img src="/src/Mamafi logo.png" alt="Logo MAMAFI" class="h-16 w-auto"> <!-- Supprimé rounded-full et object-cover -->
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800">MAMAFI</h1>
+                    <p class="text-sm md:text-base text-mamafi-green">MAlagasy MAmafy Fahombiazana Iraisana</p>
+                </div>
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="flex flex-wrap justify-center md:space-x-6 space-x-3 text-gray-700 font-medium">
+                    <li><a href="#" class="hover:text-mamafi-green transition duration-300 transform hover:scale-105">Accueil</a></li>
+                    <li><a href="#about" class="hover:text-mamafi-green transition duration-300 transform hover:scale-105">À propos</a></li>
+                    <li><a href="#actions" class="hover:text-mamafi-green transition duration-300 transform hover:scale-105">Nos actions</a></li>
+                    <li><a href="#join" class="hover:text-mamafi-green transition duration-300 transform hover:scale-105">Adhérer</a></li>
+                    <li><a href="#contact" class="hover:text-mamafi-green transition duration-300 transform hover:scale-105">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Héro avec carrousel -->
+    <main class="flex-grow">
+        <section class="hero-carousel">
+            <!-- Images du carrousel (placeholders) -->
+            <div class="hero-carousel-image active" style="background-image: url('/src/bck/4.jpg');"></div>
+            <div class="hero-carousel-image" style="background-image: url('/src/bck/RIYAN_20250521_105311_R15-\ Extra\ Saturation\ by\ Riyan.PORTRAIT.jpg');"></div>
+            <div class="hero-carousel-image" style="background-image: url('/src/bck/RIYAN_20250521_160138_R15-\ Extra\ Saturation\ by\ Riyan.PORTRAIT.jpg');"></div>
+
+            <div class="hero-overlay text-white py-16 md:py-24">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-in-up">Ensemble pour un Madagascar meilleur</h2>
+                    <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up delay-200">Contribuer au développement culturel, social, environnemental et économique de Madagascar.</p>
+                    <a href="#actions" class="bg-white text-mamafi-green font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105 animate-fade-in-up delay-400">Découvrir nos actions</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section À propos -->
+        <section id="about" class="py-16 md:py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-10 animate-fade-in">Qui sommes-nous ?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 leading-relaxed animate-fade-in delay-200">
+                        <p class="mb-4">MAlagasy MAmafy Fahombiazana Iraisana (MAMAFI) est une association régie par l'ordonnance 60-133 du 3 octobre 1960. Notre mission est de contribuer au développement durable de Madagascar à travers des actions concrètes dans plusieurs domaines clés.</p>
+                        <p class="mb-4">Nous croyons en la force de l'action collective et de la solidarité pour bâtir un avenir prospère pour tous les Malgaches. Nos efforts se concentrent sur l'éducation, la formation, la sensibilisation environnementale et la restauration des écosystèmes.</p>
+                    </div>
+                    <div class="flex justify-center animate-fade-in delay-400">
+                        <img src="/src/bck/RIYAN_20250521_155748_R15- Extra Saturation by Riyan.PORTRAIT.jpg" alt="Image représentative de MAMAFI" class="rounded-lg shadow-lg w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Nos actions -->
+        <section id="actions" class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-10 animate-fade-in">Nos domaines d'action</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Action 1: Éducation -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-t-4 border-mamafi-green hover:shadow-lg transition duration-300 animate-fade-in-up delay-200">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Éducation</h4>
+                        <p class="text-gray-600">Nous formons les maîtres aux méthodes de pédagogie active et leur donnons les moyens de les mettre en œuvre afin de rendre plus performant le système éducatif malgache.</p>
+                    </div>
+                    <!-- Action 2: Formation en milieu rural -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-t-4 border-mamafi-green hover:shadow-lg transition duration-300 animate-fade-in-up delay-400">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Formation numérique</h4>
+                        <p class="text-gray-600">Nous mettons en œuvre une solution numérique donnant accès aux populations rurales à l'information et à la formation dans des domaines multiples.</p>
+                    </div>
+                    <!-- Action 3: Environnement -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-t-4 border-mamafi-green hover:shadow-lg transition duration-300 animate-fade-in-up delay-600">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Environnement</h4>
+                        <p class="text-gray-600">Sensibilisation aux enjeux climatiques, à la dégradation de la biodiversité, à la surexploitation des ressources naturelles, et développement d'actions de reboisement et de restauration des écosystèmes forestiers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Adhérer / Nous soutenir -->
+        <section id="join" class="py-16 md:py-20 bg-mamafi-green text-white text-center">
+            <div class="container mx-auto px-4">
+                <h3 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">Rejoignez MAMAFI ou faites un don !</h3>
+                <p class="text-lg mb-8 opacity-90 animate-fade-in delay-200">Votre soutien est essentiel pour la réalisation de nos projets. Devenez membre actif ou faites un don pour aider Madagascar.</p>
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 animate-fade-in-up delay-400">
+                    <a href="#" class="bg-white text-mamafi-green font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105">Devenir membre</a>
+                    <a href="#" class="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-mamafi-green transition duration-300 shadow-lg transform hover:scale-105">Faire un don</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="py-16 md:py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-10 animate-fade-in">Nous contacter</h3>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md animate-fade-in-up delay-200">
+                    <p class="text-gray-700 mb-6 text-center">N'hésitez pas à nous contacter pour toute question ou information.</p>
+                    <div class="space-y-4 text-gray-600">
+                        <p class="flex items-center justify-center md:justify-start"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-mamafi-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>108 C 130 Andrefan'l Vohitra, Antsirabe 110, Madagascar</p>
+                        <p class="flex items-center justify-center md:justify-start"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-mamafi-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>contactmamafi@gmail.com</p>
+                        <p class="flex items-center justify-center md:justify-start"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-mamafi-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>+261 20 76 667 53</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 MAMAFI. Tous droits réservés.</p>
+            <p class="text-sm mt-2">Association régie par l'ordonnance 60-133 du 3 octobre 1960.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Politique de confidentialité</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.hero-carousel-image');
+            let currentIndex = 0;
+
+            function changeImage() {
+                // Désactiver l'image actuelle
+                images[currentIndex].classList.remove('active');
+
+                // Passer à l'image suivante, ou revenir au début si c'est la dernière
+                currentIndex = (currentIndex + 1) % images.length;
+
+                // Activer la nouvelle image
+                images[currentIndex].classList.add('active');
+            }
+
+            // Changer l'image toutes les 5 secondes (5000 ms)
+            setInterval(changeImage, 5000);
+        });
+    </script>
+</body>
+</html>
