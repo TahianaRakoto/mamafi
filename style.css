@@ -1,0 +1,133 @@
+/* Variables de couleur et styles de base */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+}
+.text-mamafi-green {
+    color: #4CAF50; /* Vert du logo */
+}
+.bg-mamafi-green {
+    background-color: #4CAF50; /* Vert du logo */
+}
+.border-mamafi-green {
+    border-color: #4CAF50; /* Vert du logo */
+}
+.shadow-mamafi {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Styles pour le carrousel de fond */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Hauteur fixe pour le carrousel */
+    overflow: hidden;
+}
+
+.hero-carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Transition douce pour le fondu */
+}
+
+.hero-carousel-image.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay sombre pour la lisibilité du texte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Animations d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Classes Tailwind surchargées avec des animations */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0; /* Assure que l'élément est invisible avant l'animation */
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Retardateurs d'animation (à réutiliser dans le HTML) */
+.delay-200 { animation-delay: 0.2s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* ... (Vos styles existants) ... */
+
+/* Nouvelle animation pour le header (Logo/Titre) */
+@keyframes slideDownFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.animate-slide-down {
+    animation: slideDownFadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Important pour l'état initial */
+}
+
+/* Style de l'en-tête au défilement (Scroll) */
+.header-scrolled {
+    background-color: #ffffff; /* S'assure que le fond est blanc */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Assurez-vous que les classes d'animation de base sont définies */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0; 
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.delay-200 { animation-delay: 0.2s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-600 { animation-delay: 0.6s; }
